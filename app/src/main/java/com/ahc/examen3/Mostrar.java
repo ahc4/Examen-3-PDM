@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class Mostrar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    EditText texto;
+    //EditText texto;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
@@ -27,7 +27,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar);
 
-        texto = findViewById(R.id.texto);
+        //texto = findViewById(R.id.texto);
         request = Volley.newRequestQueue(getApplicationContext());
         String url = "http://serviciosdigitalesplus.com/catalogo.php";
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
@@ -48,7 +48,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
 
         try
         {
-            for (int i=0; i < json.length(); i++)
+            /*for (int i=0; i < json.length(); i++)
             {
                 jsonObject = json.getJSONObject(i);
                 line += "***************************************** \n";
@@ -57,8 +57,8 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
                 line += "Costo:" + jsonObject.optString("costo") + "\n";
                 line += "Foto:" + jsonObject.optString("foto") + "\n";
                 line += "***************************************** \n\n";
-            }
-            texto.setText(line);
+            }*/
+            //texto.setText(line);
         }
         catch(Exception ex)
         {
