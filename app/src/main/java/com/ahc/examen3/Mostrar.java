@@ -1,9 +1,9 @@
 package com.ahc.examen3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,6 +19,7 @@ import org.json.JSONObject;
 public class Mostrar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     //EditText texto;
+    RecyclerView lista;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
@@ -28,6 +29,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
         setContentView(R.layout.activity_mostrar);
 
         //texto = findViewById(R.id.texto);
+        lista = findViewById(R.id.lista);
         request = Volley.newRequestQueue(getApplicationContext());
         String url = "http://serviciosdigitalesplus.com/catalogo.php";
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
