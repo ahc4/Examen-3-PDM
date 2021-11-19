@@ -1,6 +1,7 @@
 package com.ahc.examen3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class Mostrar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     //EditText texto;
@@ -30,6 +33,8 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
 
         //texto = findViewById(R.id.texto);
         lista = findViewById(R.id.lista);
+        lista.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
         request = Volley.newRequestQueue(getApplicationContext());
         String url = "http://serviciosdigitalesplus.com/catalogo.php";
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
@@ -50,16 +55,27 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
 
         try
         {
+            ArrayList<Producto> productoArrayList = new ArrayList<>();
             for (int i=0; i < json.length(); i++)
             {
                 jsonObject = json.getJSONObject(i);
-                line += "***************************************** \n";
+
+                Producto producto = new Producto();
+                producto.id = Integer.parseInt(jsonObject.optString("id"));
+                producto.nombre = jsonObject.optString("nom");
+                producto.costo = Integer.parseInt(jsonObject.optString("costo"));
+                /*line += "***************************************** \n";
                 line += "ID:" + jsonObject.optString("id") + "\n";
                 line += "Nombre:" + jsonObject.optString("nom") + "\n";
                 line += "Costo:" + jsonObject.optString("costo") + "\n";
                 line += "Foto:" + jsonObject.optString("foto") + "\n";
-                line += "***************************************** \n\n";
+                line += "***************************************** \n\n";*/
+
+                productoArrayList.add(producto);
             }
+
+            AdapterDatos adapterDatos = new AdapterDatos(productoArrayList);
+            lista.setAdapter(adapterDatos);
             //texto.setText(line);
         }
         catch(Exception ex)
