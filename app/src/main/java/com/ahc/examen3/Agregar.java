@@ -19,10 +19,7 @@ import org.json.JSONObject;
 
 public class Agregar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    EditText id;
-    EditText nombre;
-    EditText costo;
-    EditText foto;
+    EditText id, nombre, costo, foto;
     Button btnAdd;
 
     RequestQueue request;
@@ -39,17 +36,12 @@ public class Agregar extends AppCompatActivity implements Response.Listener<JSON
         costo = findViewById(R.id.txtCosto);
         foto = findViewById(R.id.txtFoto);
         btnAdd = findViewById(R.id.btnAdd);
-
         request = Volley.newRequestQueue(getApplicationContext());
 
-
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=3&id=" + id.getText().toString() +
-                        "&nom=" + nombre.getText().toString() + "&costo=" + costo.getText().toString() + "&foto=" + foto.getText().toString();
-                btnClick(view);
-            }
+        btnAdd.setOnClickListener(view -> {
+            url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=3&id=" + id.getText().toString() +
+                    "&nom=" + nombre.getText().toString() + "&costo=" + costo.getText().toString() + "&foto=" + foto.getText().toString();
+            btnClick(view);
         });
     }
 

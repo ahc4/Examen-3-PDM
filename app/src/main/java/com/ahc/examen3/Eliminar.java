@@ -19,12 +19,8 @@ import org.json.JSONObject;
 
 public class Eliminar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    EditText id;
-    EditText nombre;
-    EditText costo;
-    EditText foto;
-    Button buscar;
-    Button btnDelete;
+    EditText id, nombre, costo, foto;
+    Button buscar, btnDelete;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
     String url, url2;

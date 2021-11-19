@@ -8,11 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAgregar;
-    Button btnMostrar;
-    Button btnBuscar;
-    Button btnModificar;
-    Button btnEliminar;
+    Button btnAgregar, btnMostrar, btnBuscar, btnModificar, btnEliminar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

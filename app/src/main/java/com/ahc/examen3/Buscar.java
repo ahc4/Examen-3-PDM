@@ -19,10 +19,7 @@ import org.json.JSONObject;
 
 public class Buscar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    EditText id;
-    EditText nombre;
-    EditText costo;
-    EditText foto;
+    EditText id, nombre, costo, foto;
     Button buscar;
     String url;
 

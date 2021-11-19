@@ -19,12 +19,8 @@ import org.json.JSONObject;
 
 public class Modificar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    Button search;
-    EditText id;
-    EditText nombre;
-    EditText costo;
-    EditText foto;
-    Button btnUpdate;
+    Button search, btnUpdate;
+    EditText id, nombre, costo, foto;
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
@@ -99,7 +95,7 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
         }
         else if (tipo == 2)
         {
-            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Producto modificado.", Toast.LENGTH_SHORT).show();
         }
 
     }
