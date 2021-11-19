@@ -41,13 +41,13 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
         request = Volley.newRequestQueue(getApplicationContext());
 
         search.setOnClickListener(view -> {
-            url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=1&id=" + id.getText().toString();
+            url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=1&id=" + id.getText().toString();
             btnClick(view);
         });
 
         btnUpdate.setOnClickListener(view -> {
             tipo = 2;
-            url2 = "http://seriviciosdigitalesplus.com/catalogo.php&tipo=5&id=" + id.getText().toString() + "&nom=" + nombre.getText().toString() +
+            url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=5&id=" + id.getText().toString() + "&nom=" + nombre.getText().toString() +
                     "&costo=" + costo.getText().toString() + "&foto=" + foto.getText().toString();
             btnClick2(view);
         });

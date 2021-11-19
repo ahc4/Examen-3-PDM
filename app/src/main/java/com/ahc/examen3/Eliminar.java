@@ -41,7 +41,7 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
         request = Volley.newRequestQueue(getApplicationContext());
 
         buscar.setOnClickListener(view -> {
-            url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=1&id=" + id.getText().toString();
+            url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=1&id=" + id.getText().toString();
             btnClick(view);
         });
 
