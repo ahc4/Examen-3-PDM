@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesClearTextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Modificar"></activity>
+        android:theme="@style/Theme.AppCompat.DayNight">
+        <activity android:name=".Modificar" />
         <activity android:name=".Eliminar" />
         <activity android:name=".Buscar" />
         <activity android:name=".Mostrar" />
