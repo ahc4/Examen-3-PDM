@@ -20,10 +20,15 @@ import org.json.JSONObject;
 public class Eliminar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
     EditText id;
+    EditText nombre;
+    EditText costo;
+    EditText foto;
+    Button buscar;
     Button btnDelete;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    String url;
+    String url, url2;
+    int tipo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +36,22 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
         setContentView(R.layout.activity_eliminar);
 
         id = findViewById(R.id.editTextNumber6);
-        btnDelete = findViewById(R.id.button4);
+        nombre = findViewById(R.id.editTextTextPersonName5);
+        costo = findViewById(R.id.editTextNumber8);
+        foto = findViewById(R.id.editTextTextPersonName6);
+        buscar = findViewById(R.id.button4);
+        btnDelete = findViewById(R.id.button5);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        btnDelete.setOnClickListener(view -> {
-            url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=4&id=" + id.getText().toString();
+        buscar.setOnClickListener(view -> {
+            url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=1&id=" + id.getText().toString();
             btnClick(view);
+        });
+
+        btnDelete.setOnClickListener(view -> {
+            url2 = "http://serviciosdigitalesplus.com/catalogo.php?tipo=4&id=" + id.getText().toString();
+            btnClick2(view);
         });
     }
 
@@ -45,8 +59,17 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
     {
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
+        //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        tipo = 1;
     }
 
+    public void btnClick2(View v)
+    {
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        request.add(jsonObjectRequest);
+        //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        tipo = 2;
+    }
     @Override
     public void onErrorResponse(VolleyError error) {
 
@@ -54,6 +77,24 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
 
     @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        if(tipo == 1)
+        {
+            JSONObject jsonObject2 = response.optJSONObject("dato");
+
+            try {
+                id.setText(jsonObject2.optString("id"));
+                nombre.setText(jsonObject2.optString("nom"));
+                costo.setText(jsonObject2.optString("costo"));
+                foto.setText(jsonObject2.optString("foto"));
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+        else if (tipo == 2)
+        {
+            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+        }
     }
 }

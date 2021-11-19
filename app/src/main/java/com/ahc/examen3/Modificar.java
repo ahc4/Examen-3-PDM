@@ -28,9 +28,8 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    String url;
-    String url2;
-    int tipo=0;
+    String url, url2;
+    int tipo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
