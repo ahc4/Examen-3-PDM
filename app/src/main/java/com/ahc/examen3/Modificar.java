@@ -19,7 +19,6 @@ import org.json.JSONObject;
 
 public class Modificar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    EditText buscar;
     Button search;
     EditText id;
     EditText nombre;
@@ -38,7 +37,6 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar);
 
-        buscar = findViewById(R.id.editTextNumber);
         search = findViewById(R.id.button);
         id = findViewById(R.id.editTextNumber7);
         nombre = findViewById(R.id.editTextTextPersonName3);
@@ -50,7 +48,7 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=1&id=" + buscar.getText().toString();
+                url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=1&id=" + id.getText().toString();
                 btnClick(view);
             }
         });
