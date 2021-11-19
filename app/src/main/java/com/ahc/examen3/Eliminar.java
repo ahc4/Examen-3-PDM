@@ -68,7 +68,7 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
         //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
-        tipo = 2;
+        tipo = 4;
     }
     @Override
     public void onErrorResponse(VolleyError error) {
@@ -92,7 +92,7 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
 
             }
         }
-        else if (tipo == 2)
+        else if (tipo == 4)
         {
             Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
         }

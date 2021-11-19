@@ -44,22 +44,16 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
         btnUpdate = findViewById(R.id.button3);
         request = Volley.newRequestQueue(getApplicationContext());
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=1&id=" + id.getText().toString();
-                btnClick(view);
-            }
+        search.setOnClickListener(view -> {
+            url = "http://serviciosdigitalesplus.com/catalogo.php&tipo=1&id=" + id.getText().toString();
+            btnClick(view);
         });
 
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tipo = 2;
-                url2 = "http://seriviciosdigitalesplus.com/catalogo.php&tipo=5&id=" + id.getText().toString() + "&nom=" + nombre.getText().toString() +
-                        "&costo=" + costo.getText().toString() + "&foto=" + foto.getText().toString();
-                btnClick2(view);
-            }
+        btnUpdate.setOnClickListener(view -> {
+            tipo = 2;
+            url2 = "http://seriviciosdigitalesplus.com/catalogo.php&tipo=5&id=" + id.getText().toString() + "&nom=" + nombre.getText().toString() +
+                    "&costo=" + costo.getText().toString() + "&foto=" + foto.getText().toString();
+            btnClick2(view);
         });
     }
 
