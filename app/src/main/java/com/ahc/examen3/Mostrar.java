@@ -50,7 +50,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
 
         try
         {
-            /*for (int i=0; i < json.length(); i++)
+            for (int i=0; i < json.length(); i++)
             {
                 jsonObject = json.getJSONObject(i);
                 line += "***************************************** \n";
@@ -59,7 +59,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
                 line += "Costo:" + jsonObject.optString("costo") + "\n";
                 line += "Foto:" + jsonObject.optString("foto") + "\n";
                 line += "***************************************** \n\n";
-            }*/
+            }
             //texto.setText(line);
         }
         catch(Exception ex)

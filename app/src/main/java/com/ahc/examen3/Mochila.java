@@ -1,10 +1,8 @@
 package com.ahc.examen3;
 
 public class Mochila {
-    int id;
-    String nombre;
-    int costo;
-    String foto;
+    int id, costo;
+    String nombre, foto;
 
     public Mochila(int id, String nombre, int costo, String foto)
     {
