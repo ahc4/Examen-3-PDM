@@ -61,20 +61,20 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
                 jsonObject = json.getJSONObject(i);
 
                 Producto producto = new Producto();
-                producto.id = jsonObject.getInt("id");
-                producto.nombre = jsonObject.getString("nom");
-                producto.costo = jsonObject.getInt("costo");
+                producto.setId(jsonObject.getInt("id"));
+                producto.setNombre(jsonObject.getString("nom"));
+                producto.setCosto(jsonObject.getInt("costo"));
+                producto.setFoto(jsonObject.getString("foto"));
                 /*line += "***************************************** \n";
                 line += "ID:" + jsonObject.optString("id") + "\n";
                 line += "Nombre:" + jsonObject.optString("nom") + "\n";
                 line += "Costo:" + jsonObject.optString("costo") + "\n";
                 line += "Foto:" + jsonObject.optString("foto") + "\n";
                 line += "***************************************** \n\n";*/
-
                 productoArrayList.add(producto);
             }
 
-            AdapterDatos adapterDatos = new AdapterDatos(productoArrayList);
+            AdapterDatos adapterDatos = new AdapterDatos(getApplicationContext(), productoArrayList);
             lista.setAdapter(adapterDatos);
             //texto.setText(line);
         }

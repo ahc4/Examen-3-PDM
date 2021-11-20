@@ -1,5 +1,6 @@
 package com.ahc.examen3;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
 {
     ArrayList<Producto> productos;
 
-    public AdapterDatos(ArrayList<Producto> productos) { this.productos = productos; }
+    public AdapterDatos(Context applicationContext, ArrayList<Producto> productos) { this.productos = productos; }
 
     @NonNull
     @Override
@@ -33,12 +34,13 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
 
     public static class ViewHolderDatos extends RecyclerView.ViewHolder
     {
-        TextView id, nombre, precio;
+        TextView id, nombre, precio, foto;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             id = itemView.findViewById(R.id.txt_id);
             nombre = itemView.findViewById(R.id.txt_nombre);
             precio = itemView.findViewById(R.id.txt_costo);
+            foto = itemView.findViewById(R.id.txt_foto);
         }
 
         public void asignarDatos(Producto p)
@@ -46,6 +48,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             id.setText(p.id);
             nombre.setText(p.nombre);
             precio.setText("$ " + p.costo);
+            foto.setText(p.foto);
         }
     }
 
