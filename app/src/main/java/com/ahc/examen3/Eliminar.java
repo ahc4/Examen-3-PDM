@@ -90,7 +90,7 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
         }
         else if (tipo == 4)
         {
-            Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Producto eliminado.", Toast.LENGTH_SHORT).show();
         }
     }
 }
