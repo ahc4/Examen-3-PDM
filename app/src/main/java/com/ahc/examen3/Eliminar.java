@@ -23,7 +23,7 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
     Button buscar, btnDelete;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    String url, url2;
+    String url;
     int tipo = 0;
 
     @Override
@@ -46,7 +46,7 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
         });
 
         btnDelete.setOnClickListener(view -> {
-            url2 = "http://serviciosdigitalesplus.com/catalogo.php?tipo=4&id=" + id.getText().toString();
+            url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=4&id=" + id.getText().toString();
             btnClick2(view);
         });
     }
