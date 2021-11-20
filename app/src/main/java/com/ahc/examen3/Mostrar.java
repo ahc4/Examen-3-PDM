@@ -52,18 +52,18 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
         JSONArray json = response.optJSONArray("datos");
         JSONObject jsonObject = null;
         String line = "";
+        ArrayList<Producto> productoArrayList = new ArrayList<>();
 
         try
         {
-            ArrayList<Producto> productoArrayList = new ArrayList<>();
             for (int i=0; i < json.length(); i++)
             {
                 jsonObject = json.getJSONObject(i);
 
                 Producto producto = new Producto();
-                producto.id = Integer.parseInt(jsonObject.optString("id"));
-                producto.nombre = jsonObject.optString("nom");
-                producto.costo = Integer.parseInt(jsonObject.optString("costo"));
+                producto.id = jsonObject.getInt("id");
+                producto.nombre = jsonObject.getString("nom");
+                producto.costo = jsonObject.getInt("costo");
                 /*line += "***************************************** \n";
                 line += "ID:" + jsonObject.optString("id") + "\n";
                 line += "Nombre:" + jsonObject.optString("nom") + "\n";

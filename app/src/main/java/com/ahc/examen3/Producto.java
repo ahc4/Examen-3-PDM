@@ -13,19 +13,11 @@ public class Producto
         this.foto = foto;
     }
 
-    public Producto()
-    {
-
-    }
+    public Producto() {}
 
     public int getID()
     {
         return id;
-    }
-
-    public void setID(int id)
-    {
-        this.id = id;
     }
 
     public String getNombre()
@@ -33,28 +25,14 @@ public class Producto
         return nombre;
     }
 
-    public void setNombre(String nombre)
-    {
-        this.nombre = nombre;
-    }
-
     public int getCosto()
     {
         return costo;
     }
 
-    public void setCosto(int costo)
-    {
-        this.costo = costo;
-    }
     public String getFoto()
     {
         return foto;
-    }
-
-    public void setFoto(String foto)
-    {
-        this.foto = foto;
     }
 
 }
