@@ -24,7 +24,8 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
 
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    String url;
+    String url = "";
+    String url2 = "";
     int tipo = 0;
 
     @Override
@@ -46,7 +47,7 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
         });
 
         btnUpdate.setOnClickListener(view -> {
-            url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=5&id=" + id.getText().toString() +
+            url2 = "http://serviciosdigitalesplus.com/catalogo.php?tipo=5&id=" + id.getText().toString() +
                     "&nom=" + nombre.getText().toString() + "&costo=" + costo.getText().toString() + "&foto=" + foto.getText().toString();
             btnClick2(view);
         });
@@ -62,7 +63,7 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
 
     public void btnClick2(View v)
     {
-        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
+        jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url2, null, this, this);
         request.add(jsonObjectRequest);
         //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
         tipo = 2;
