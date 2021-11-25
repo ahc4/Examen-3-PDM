@@ -17,6 +17,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class Mostrar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
@@ -49,32 +50,32 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
     @Override
     public void onResponse(JSONObject response) {
         Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
-        JSONArray json = response.optJSONArray("datos");
+        JSONArray jsonArray = response.optJSONArray("datos");
         JSONObject jsonObject = null;
         String line = "";
-        ArrayList<Producto> productoArrayList = new ArrayList<>();
+        ArrayList<Producto> productoList = new ArrayList<>();
 
         try
         {
-            for (int i=0; i < json.length(); i++)
+            for (int i=0; i < jsonArray.length(); i++)
             {
-                jsonObject = json.getJSONObject(i);
+                jsonObject = jsonArray.getJSONObject(i);
 
                 Producto producto = new Producto();
-                producto.setId(jsonObject.getInt("id"));
-                producto.setNombre(jsonObject.getString("nom"));
-                producto.setCosto(jsonObject.getInt("costo"));
-                producto.setFoto(jsonObject.getString("foto"));
+                producto.setId(jsonObject.optString("id"));
+                producto.setNombre(jsonObject.optString("nom"));
+                producto.setCosto(jsonObject.optString("costo"));
+                producto.setFoto(jsonObject.optString("foto"));
                 /*line += "***************************************** \n";
                 line += "ID:" + jsonObject.optString("id") + "\n";
                 line += "Nombre:" + jsonObject.optString("nom") + "\n";
                 line += "Costo:" + jsonObject.optString("costo") + "\n";
                 line += "Foto:" + jsonObject.optString("foto") + "\n";
                 line += "***************************************** \n\n";*/
-                productoArrayList.add(producto);
+                productoList.add(producto);
             }
 
-            AdapterDatos adapterDatos = new AdapterDatos(getApplicationContext(), productoArrayList);
+            AdapterDatos adapterDatos = new AdapterDatos(productoList);
             lista.setAdapter(adapterDatos);
             //texto.setText(line);
         }

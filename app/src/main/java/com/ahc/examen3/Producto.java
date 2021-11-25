@@ -2,11 +2,11 @@ package com.ahc.examen3;
 
 public class Producto
 {
-    int id, costo;
+    // Atributos del objeto
+    String id, nombre, costo, foto;
 
-    String nombre, foto;
-
-    public Producto(int id, String nombre, int costo, String foto)
+    // Constructor con parámetros
+    public Producto(String id, String nombre, String costo, String foto)
     {
         this.id = id;
         this.nombre = nombre;
@@ -14,14 +14,13 @@ public class Producto
         this.foto = foto;
     }
 
+    // Constructor sin parámetros
     public Producto() {}
 
-    public int getId()
-    {
-        return id;
-    }
+    // Getters y Setters
+    public String getId() { return id; }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(String id) { this.id = id; }
 
     public String getNombre()
     {
@@ -30,12 +29,12 @@ public class Producto
 
     public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public int getCosto()
+    public String getCosto()
     {
         return costo;
     }
 
-    public void setCosto(int costo) { this.costo = costo; }
+    public void setCosto(String costo) { this.costo = costo; }
 
     public String getFoto()
     {

@@ -9,13 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDatos>
 {
     ArrayList<Producto> productos;
 
-    public AdapterDatos(Context applicationContext, ArrayList<Producto> productos) { this.productos = productos; }
+    public AdapterDatos(ArrayList<Producto> productos) { this.productos = productos; }
 
     @NonNull
     @Override
@@ -45,10 +46,10 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
 
         public void asignarDatos(Producto p)
         {
-            id.setText(p.id);
-            nombre.setText(p.nombre);
-            precio.setText("$ " + p.costo);
-            foto.setText(p.foto);
+            id.setText(p.getId());
+            nombre.setText(p.getNombre());
+            precio.setText("$ " + p.getCosto());
+            foto.setText(p.getFoto());
         }
     }
 
