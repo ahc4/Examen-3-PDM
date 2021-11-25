@@ -46,7 +46,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
         {
             id.setText(p.getId());
             nombre.setText(p.getNombre());
-            precio.setText("$ " + p.getCosto() + ".00");
+            precio.setText(String.format("$ %s.00", p.getCosto()));
             foto.setText(p.getFoto());
         }
     }

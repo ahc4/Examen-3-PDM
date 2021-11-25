@@ -89,6 +89,10 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
         }
         else if (tipo == 4)
         {
+            id.setText("");
+            nombre.setText("");
+            costo.setText("");
+            foto.setText("");
             Toast.makeText(this, "Producto eliminado.", Toast.LENGTH_SHORT).show();
         }
     }

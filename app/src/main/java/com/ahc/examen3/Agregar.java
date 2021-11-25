@@ -53,6 +53,10 @@ public class Agregar extends AppCompatActivity implements Response.Listener<JSON
 
     @Override
     public void onResponse(JSONObject response) {
+        id.setText("");
+        nombre.setText("");
+        costo.setText("");
+        foto.setText("");
         Toast.makeText(this, "Producto agregado exitosamente.", Toast.LENGTH_SHORT).show();
     }
 
