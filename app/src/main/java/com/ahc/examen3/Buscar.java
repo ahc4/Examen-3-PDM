@@ -45,12 +45,9 @@ public class Buscar extends AppCompatActivity implements Response.Listener<JSONO
         request = Volley.newRequestQueue(getApplicationContext());
 
         // Programación del botón
-        buscar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=1&id=" + id.getText().toString();
-                btnClick(view);
-            }
+        buscar.setOnClickListener(view -> {
+            url = "http://serviciosdigitalesplus.com/catalogo.php?tipo=1&id=" + id.getText().toString();
+            btnClick(view);
         });
     }
 
