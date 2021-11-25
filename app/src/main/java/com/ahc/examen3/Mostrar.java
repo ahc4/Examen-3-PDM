@@ -50,7 +50,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
     public void onResponse(JSONObject response) {
         Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
         JSONArray jsonArray = response.optJSONArray("datos");
-        JSONObject jsonObject = null;
+        JSONObject jsonObject;
         //String line = "";
         ArrayList<Producto> productoList = new ArrayList<>();
 
