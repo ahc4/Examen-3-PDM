@@ -56,7 +56,6 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
     {
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
-        //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
         tipo = 1;
     }
 
@@ -64,12 +63,11 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
     {
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url2, null, this, this);
         request.add(jsonObjectRequest);
-        //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
         tipo = 4;
     }
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -84,9 +82,9 @@ public class Eliminar extends AppCompatActivity implements Response.Listener<JSO
                 costo.setText(jsonObject2.optString("costo"));
                 foto.setText(jsonObject2.optString("foto"));
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-
+                Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
         else if (tipo == 4)

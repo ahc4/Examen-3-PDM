@@ -1,6 +1,5 @@
 package com.ahc.examen3;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
 import java.util.ArrayList;
 
 public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDatos>
@@ -48,7 +46,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
         {
             id.setText(p.getId());
             nombre.setText(p.getNombre());
-            precio.setText("$ " + p.getCosto());
+            precio.setText("$ " + p.getCosto() + ".00");
             foto.setText(p.getFoto());
         }
     }

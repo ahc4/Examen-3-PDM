@@ -57,7 +57,6 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
     {
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         request.add(jsonObjectRequest);
-        //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
         tipo = 1;
     }
 
@@ -65,7 +64,6 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
     {
         jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url2, null, this, this);
         request.add(jsonObjectRequest);
-        //Toast.makeText(this, "OK", Toast.LENGTH_SHORT).show();
         tipo = 2;
     }
 
@@ -87,9 +85,9 @@ public class Modificar extends AppCompatActivity implements Response.Listener<JS
                 costo.setText(jsonObject2.optString("costo"));
                 foto.setText(jsonObject2.optString("foto"));
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-
+                Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
         else if (tipo == 2)
