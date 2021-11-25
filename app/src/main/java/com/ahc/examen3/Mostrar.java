@@ -17,7 +17,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.List;
 import java.util.ArrayList;
 
 public class Mostrar extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
@@ -44,7 +43,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(this, "" + error.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -52,7 +51,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
         Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
         JSONArray jsonArray = response.optJSONArray("datos");
         JSONObject jsonObject = null;
-        String line = "";
+        //String line = "";
         ArrayList<Producto> productoList = new ArrayList<>();
 
         try
@@ -62,9 +61,9 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
                 jsonObject = jsonArray.getJSONObject(i);
 
                 Producto producto = new Producto();
-                producto.setId(jsonObject.optString("id"));
+                producto.setId(jsonObject.optInt("id"));
                 producto.setNombre(jsonObject.optString("nom"));
-                producto.setCosto(jsonObject.optString("costo"));
+                producto.setCosto(jsonObject.optInt("costo"));
                 producto.setFoto(jsonObject.optString("foto"));
                 /*line += "***************************************** \n";
                 line += "ID:" + jsonObject.optString("id") + "\n";
@@ -81,7 +80,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
         }
         catch(Exception ex)
         {
-            //Toast.makeText(this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }
