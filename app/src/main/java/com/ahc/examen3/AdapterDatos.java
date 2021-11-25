@@ -14,8 +14,10 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
 {
     ArrayList<Producto> productos;
 
+    // Constructor por defecto
     public AdapterDatos(ArrayList<Producto> productos) { this.productos = productos; }
 
+    // Instanciar la vista con el recurso del RecyclerView
     @NonNull
     @Override
     public AdapterDatos.ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -23,17 +25,23 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
         return new ViewHolderDatos(view);
     }
 
+    // Prepara el retorno de los elementos
     @Override
     public void onBindViewHolder(@NonNull AdapterDatos.ViewHolderDatos holder, int position) {
         holder.asignarDatos(productos.get(position));
     }
 
+    // Devuelve el número de elementos que hay en la lista
     @Override
     public int getItemCount() { return productos.size(); }
 
+    // Clase que permite asignar los valores del objeto a los componentes del recurso
     public static class ViewHolderDatos extends RecyclerView.ViewHolder
     {
+        // Variables de los componentes
         TextView id, nombre, precio, foto;
+
+        // Relacionar las variables con los componentes del layout
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             id = itemView.findViewById(R.id.txt_id);
@@ -42,6 +50,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             foto = itemView.findViewById(R.id.txt_foto);
         }
 
+        // Asignación de datos
         public void asignarDatos(Producto p)
         {
             id.setText(p.getId());
@@ -50,5 +59,4 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             foto.setText(p.getFoto());
         }
     }
-
 }
