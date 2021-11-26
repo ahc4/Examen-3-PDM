@@ -60,7 +60,7 @@ public class Mostrar extends AppCompatActivity implements Response.Listener<JSON
     // Acción de la solicitud
     @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "" + response, Toast.LENGTH_SHORT).show();
         // Lectura del arreglo de los productos
         JSONArray jsonArray = response.optJSONArray("datos");
 
